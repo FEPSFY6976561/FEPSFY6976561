@@ -88,60 +88,37 @@
     (Analysis and discussion text)
   </pre>
   </p>
-
     
   <h3 id="References">References</h3>
   <p>
   <pre>
-    References Text
-  </p>
-  </pre>
-
-  <head>
-    <title>Change Button Colour</title>
-  </head>
-    
-  <body>
-    <button id="colorButton">Click me to change colour</button>
-    <script>
-      // Get a reference to the button element
-      var button = document.getElementById("colorButton");
-      // Function to change the button color
-      function changeColor() {
-      // Generate a random color (hexadecimal)
-      var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
-      // Set the button's background color to the random color
-      button.style.backgroundColor = randomColor;
-      }
-      // Add a click event listener to the button
-      button.addEventListener("click", changeColor);
-    </script>
-  </body>
-    
-  <body>
-    <div id="chart_div"></div>
-    <script type="text/javascript">
-      google.charts.load("current",{"packages":["corechart"]})
-      google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Task", "Hours per Day"],
-        ["Work", 8],
-        ["Sleep", 8],
-        ["Eat", 2],
-        ["Study", 4],
-        ["Exercise", 2]
-      ]);
-      var options = {
-        title: "My Daily Activities"
-      };
-      var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
-      chart.draw(data, options);
-      }
-    </script>
-  </body>
-
+    (References Text)
+    <body>
+      <div id="chart_div"></div>
+      <script type="text/javascript">
+        google.charts.load("current",{"packages":["corechart"]})
+        google.charts.setOnLoadCallback(drawChart);
+  
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Task", "Hours per Day"],
+          ["Work", 8],
+          ["Sleep", 8],
+          ["Eat", 2],
+          ["Study", 4],
+          ["Exercise", 2]
+        ]);
+        var options = {
+          title: "My Daily Activities"
+        };
+        var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
+        chart.draw(data, options);
+        }
+      </script>
+    </body>
+    </p>
+    </pre>
+  
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
@@ -214,10 +191,11 @@
     // Function to calculate and display total word count from selected sections
     function displayTotalWordCount() {
       // Calculate word count for each section and accumulate the total
-      const IntroductionCount = displayWordCount("Introduction_InText");
-      const AnalysisCount = displayWordCount("Analysis_InText");
+      const IntroductionCount = displayWordCount("Introduction");
+      const AnalysisCount = displayWordCount("Analysis and discussion");
+      const AbstrctCount = displayWordCount("Abstract");
       // Calculate the sum of all selected sections
-      const totalWordCount = IntroductionCount + AnalysisCount;
+      const totalWordCount = IntroductionCount + AnalysisCount + AbstractCount;
       // Display the total word count
       document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
     }
